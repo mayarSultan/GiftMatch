@@ -4,17 +4,61 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Applied before first paint to avoid a flash of the wrong theme -->
+    <script>
+      try {
+        var stored = localStorage.getItem('giftmatch-theme')
+        var theme = stored ? JSON.parse(stored).state.theme : 'light'
+        if (theme === 'dark') document.documentElement.classList.add('dark')
+      } catch (error) {
+        // Storage unavailable or malformed — fall back to light mode.
+      }
+    </script>
+
+    <title>GiftMatch — Find the perfect gift in under a minute</title>
     <meta
       name="description"
-      content="GiftMatch — find the perfect gift in under a minute."
+      content="Answer five quick questions and GiftMatch matches you with gift ideas worth giving — no account needed, free to use."
     />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GiftMatch" />
+    <meta
+      property="og:title"
+      content="GiftMatch — Find the perfect gift in under a minute"
+    />
+    <meta
+      property="og:description"
+      content="Answer five quick questions and GiftMatch matches you with gift ideas worth giving."
+    />
+    <meta
+      property="og:image"
+      content="https://picsum.photos/seed/giftmatch-og/1200/630"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="GiftMatch — Find the perfect gift in under a minute"
+    />
+    <meta
+      name="twitter:description"
+      content="Answer five quick questions and GiftMatch matches you with gift ideas worth giving."
+    />
+    <meta
+      name="twitter:image"
+      content="https://picsum.photos/seed/giftmatch-og/1200/630"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>GiftMatch</title>
   </head>
   <body>
     <div id="root"></div>

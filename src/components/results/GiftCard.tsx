@@ -4,6 +4,7 @@ import type { ScoredGift } from '@/utils/recommendationEngine'
 import { formatMatchReason } from '@/utils/formatMatchReason'
 import { ScoreBadge } from '@/components/results/ScoreBadge'
 import { GiftImage } from '@/components/shared/GiftImage'
+import { FavoriteToggle } from '@/components/results/FavoriteToggle'
 
 interface GiftCardProps {
   scoredGift: ScoredGift
@@ -22,11 +23,16 @@ export function GiftCard({ scoredGift, index }: GiftCardProps) {
       whileHover={shouldReduceMotion ? undefined : { y: -4 }}
       className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-shadow duration-200 hover:shadow-md"
     >
-      <div className="overflow-hidden">
+      <div className="relative overflow-hidden">
         <GiftImage
           src={gift.image}
           alt={gift.name}
           className="h-44 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <FavoriteToggle
+          giftId={gift.id}
+          giftName={gift.name}
+          className="absolute right-3 top-3"
         />
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">

@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @plugin 'tailwindcss-animate';
 
+@custom-variant dark (&:is(.dark *));
+
 /*
   GiftMatch design tokens
   Cream    #FBF8F4  base background, warm not stark
@@ -44,6 +46,35 @@
 
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.dark {
+  --background: #201c1a;
+  --foreground: #f3efe8;
+
+  --card: #2a2422;
+  --card-foreground: #f3efe8;
+
+  --popover: #2a2422;
+  --popover-foreground: #f3efe8;
+
+  --primary: #d97b95;
+  --primary-hover: #e498ad;
+  --primary-foreground: #201c1a;
+
+  --secondary: #362f2c;
+  --secondary-foreground: #f3efe8;
+
+  --muted: #362f2c;
+  --muted-foreground: #a89e97;
+
+  --accent: #d9ac5a;
+  --accent-foreground: #201c1a;
+
+  --destructive: #e5675e;
+  --border: #423a36;
+  --input: #423a36;
+  --ring: #d97b95;
 }
 
 @theme inline {

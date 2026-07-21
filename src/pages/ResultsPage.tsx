@@ -4,8 +4,10 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { GiftCard } from '@/components/results/GiftCard'
 import { EmptyResultsState } from '@/components/results/EmptyResultsState'
+import { ShareButton } from '@/components/results/ShareButton'
 import { useQuizResults } from '@/hooks/useQuizResults'
 import { useCelebrationConfetti } from '@/hooks/useCelebrationConfetti'
+import { useDocumentMeta } from '@/hooks/useDocumentMeta'
 import { useQuizStore } from '@/store/useQuizStore'
 import { routes } from '@/utils/routes'
 
@@ -15,6 +17,12 @@ export function ResultsPage() {
   const { recommendations, hasAnswers, isEmpty } = useQuizResults()
 
   useCelebrationConfetti(hasAnswers && !isEmpty)
+  useDocumentMeta(
+    'Your matches',
+    hasAnswers
+      ? `${recommendations.length} gift ideas matched to your quiz answers.`
+      : 'Take the GiftMatch quiz to see your gift matches.',
+  )
 
   function handleRetake() {
     resetQuiz()
@@ -36,14 +44,17 @@ export function ResultsPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <Button variant="ghost" onClick={() => navigate(-1)}>
           <ArrowLeft aria-hidden="true" />
           Back
         </Button>
-        <Button variant="outline" onClick={handleRetake}>
-          Retake quiz
-        </Button>
+        <div className="flex flex-wrap items-center gap-3">
+          {!isEmpty && <ShareButton />}
+          <Button variant="outline" onClick={handleRetake}>
+            Retake quiz
+          </Button>
+        </div>
       </div>
 
       <motion.div

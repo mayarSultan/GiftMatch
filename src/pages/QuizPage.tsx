@@ -4,11 +4,17 @@ import { ProgressBar } from '@/components/quiz/ProgressBar'
 import { OptionGroup } from '@/components/quiz/OptionGroup'
 import { QuizNavigation } from '@/components/quiz/QuizNavigation'
 import { useQuizNavigation } from '@/hooks/useQuizNavigation'
+import { useDocumentMeta } from '@/hooks/useDocumentMeta'
+import { useQuizStore } from '@/store/useQuizStore'
+import { useRecentSearchesStore } from '@/store/useRecentSearchesStore'
+import { encodeAnswersToSearchParams } from '@/utils/quizAnswersSerializer'
 import { routes } from '@/utils/routes'
 
 export function QuizPage() {
   const navigate = useNavigate()
   const shouldReduceMotion = useReducedMotion()
+  const answers = useQuizStore((state) => state.answers)
+  const addSearch = useRecentSearchesStore((state) => state.addSearch)
   const {
     currentQuestion,
     stepIndex,
@@ -23,9 +29,15 @@ export function QuizPage() {
     goPrev,
   } = useQuizNavigation()
 
+  useDocumentMeta(
+    'Take the quiz',
+    'Answer five quick questions to find the perfect gift.',
+  )
+
   function handleNext() {
     if (isLastStep) {
-      navigate(routes.results)
+      addSearch(answers)
+      navigate(`${routes.results}?${encodeAnswersToSearchParams(answers)}`)
       return
     }
     goNext()

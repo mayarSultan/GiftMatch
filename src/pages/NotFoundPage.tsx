@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useDocumentMeta } from '@/hooks/useDocumentMeta'
 import { routes } from '@/utils/routes'
 
 export function NotFoundPage() {
+  useDocumentMeta('Page not found', "The page you're looking for doesn't exist.")
+
   return (
     <div className="mx-auto flex min-h-[60vh] max-w-6xl flex-col items-center justify-center gap-3 px-4 text-center sm:px-6">
       <h1 className="font-display text-3xl">Page not found</h1>
