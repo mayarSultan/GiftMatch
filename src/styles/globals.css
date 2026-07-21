@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+@plugin 'tailwindcss-animate';
+
+/*
+  GiftMatch design tokens
+  Cream    #FBF8F4  base background, warm not stark
+  Ink      #221F1E  primary text
+  Berry    #A23A5C  primary — ribbon/gift-tag color
+  Berry-dk #7E2C47  primary hover/pressed
+  Gold     #C99A3E  accent — sparing use on highlights
+  Sand     #EFEAE0  secondary surface / muted backgrounds
+  Line     #E2DCD0  borders
+*/
+
+:root {
+  --radius: 0.75rem;
+
+  --background: #fbf8f4;
+  --foreground: #221f1e;
+
+  --card: #ffffff;
+  --card-foreground: #221f1e;
+
+  --popover: #ffffff;
+  --popover-foreground: #221f1e;
+
+  --primary: #a23a5c;
+  --primary-hover: #7e2c47;
+  --primary-foreground: #fbf8f4;
+
+  --secondary: #efeae0;
+  --secondary-foreground: #221f1e;
+
+  --muted: #f3efe8;
+  --muted-foreground: #6f6a63;
+
+  --accent: #c99a3e;
+  --accent-foreground: #221f1e;
+
+  --destructive: #b3261e;
+  --border: #e2dcd0;
+  --input: #e2dcd0;
+  --ring: #a23a5c;
+
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+  :focus-visible {
+    @apply outline-ring outline-2 outline-offset-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
