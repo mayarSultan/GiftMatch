@@ -13,6 +13,9 @@ interface QuizState {
   resetQuiz: () => void
 }
 
+// Deliberately NOT persisted — this only tracks an in-progress quiz.
+// Once finished, answers move into the results URL (shareable, bookmarkable)
+// and, if the person wants them remembered, into useRecentSearchesStore.
 export const useQuizStore = create<QuizState>((set) => ({
   stepIndex: 0,
   answers: {},

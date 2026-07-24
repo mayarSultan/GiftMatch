@@ -1,8 +1,19 @@
 {
   "name": "giftmatch",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.8.0",
   "type": "module",
+  "description": "Find the perfect gift in under a minute — a quiz-driven gift recommendation app.",
+  "author": "Mayar Sultan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mayarSultan/GiftMatch.git"
+  },
+  "homepage": "https://github.com/mayarSultan/GiftMatch#readme",
+  "bugs": {
+    "url": "https://github.com/mayarSultan/GiftMatch/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

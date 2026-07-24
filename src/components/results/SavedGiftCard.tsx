@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Tag } from 'lucide-react'
 import type { Gift } from '@/types/gift'
 import { GiftImage } from '@/components/shared/GiftImage'
@@ -7,7 +8,7 @@ interface SavedGiftCardProps {
   gift: Gift
 }
 
-export function SavedGiftCard({ gift }: SavedGiftCardProps) {
+function SavedGiftCardComponent({ gift }: SavedGiftCardProps) {
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card">
       <div className="relative">
@@ -42,3 +43,5 @@ export function SavedGiftCard({ gift }: SavedGiftCardProps) {
     </article>
   )
 }
+
+export const SavedGiftCard = memo(SavedGiftCardComponent)

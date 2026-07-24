@@ -4,12 +4,15 @@ import { persist } from 'zustand/middleware'
 interface FavoritesState {
   favoriteIds: string[]
   toggleFavorite: (giftId: string) => void
-  isFavorite: (giftId: string) => boolean
 }
 
+// Persisted to localStorage — no account, no sync across devices.
+// Consumers check membership directly via a selector
+// (e.g. `state.favoriteIds.includes(id)`) rather than a getter,
+// so only components watching that specific id re-render on toggle.
 export const useFavoritesStore = create<FavoritesState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       favoriteIds: [],
       toggleFavorite: (giftId) =>
         set((state) => ({
@@ -17,7 +20,6 @@ export const useFavoritesStore = create<FavoritesState>()(
             ? state.favoriteIds.filter((id) => id !== giftId)
             : [...state.favoriteIds, giftId],
         })),
-      isFavorite: (giftId) => get().favoriteIds.includes(giftId),
     }),
     { name: 'giftmatch-favorites' },
   ),

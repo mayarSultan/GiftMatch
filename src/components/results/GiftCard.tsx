@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Tag } from 'lucide-react'
 import type { ScoredGift } from '@/utils/recommendationEngine'
@@ -11,7 +12,7 @@ interface GiftCardProps {
   index: number
 }
 
-export function GiftCard({ scoredGift, index }: GiftCardProps) {
+function GiftCardComponent({ scoredGift, index }: GiftCardProps) {
   const { gift, score, maxScore, matchedCategories } = scoredGift
   const shouldReduceMotion = useReducedMotion()
 
@@ -60,3 +61,5 @@ export function GiftCard({ scoredGift, index }: GiftCardProps) {
     </motion.article>
   )
 }
+
+export const GiftCard = memo(GiftCardComponent)

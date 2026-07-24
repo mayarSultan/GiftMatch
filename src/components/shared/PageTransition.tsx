@@ -7,6 +7,12 @@ interface PageTransitionProps {
   children: ReactNode
 }
 
+/**
+ * Owns the app's single <main> landmark, focus-on-navigate behavior, and
+ * the fade/slide transition between routes. Both MarketingLayout and
+ * FocusedLayout render this once each — never nest two of these, since
+ * a page can only have one <main> landmark at a time.
+ */
 export function PageTransition({ children }: PageTransitionProps) {
   const location = useLocation()
   const shouldReduceMotion = useReducedMotion()
