@@ -107,6 +107,65 @@ swapped for a real API response without touching its consumers.
 other module imports `giftCatalog` from there. If this ever becomes a real
 network call, that's the one file that changes.
 
+## Version 2: the AI layer (in progress)
+
+Version 1 is fully client-side. Version 2 adds an optional free-text entry
+point — "My sister loves books, coffee, and plants" — as an alternative to
+the five-question quiz. The design goal: **the existing
+`recommendationEngine.ts` never changes.** AI only produces the same kind
+of structured input the quiz already produces; scoring stays exactly as
+described above.
+
+```
+free text  →  /api/parse-description  →  AiExtractedProfile  →  recommendationEngine (unchanged)
+```
+
+### Why a serverless function, not a direct client-side API call
+
+An LLM call needs an API key. A key can never live in client-side code —
+anyone can read it from the browser's network tab or bundled JS. So a
+minimal serverless proxy is required: the frontend calls `/api/parse-description`
+(same origin, no key needed client-side), and that function — which holds
+the real key server-side — is the only thing that will eventually talk to
+an LLM provider. This is a new architectural layer for GiftMatch, deployed
+on Vercel (`api/` folder convention, `vercel.json` for SPA + API routing).
+
+### Current state: contract-first, mock-backed
+
+As of Phase 1, `api/parse-description.ts` is real and fully functional, but
+`src/utils/parseDescriptionMock.ts` — the thing it calls — is a
+deterministic keyword matcher, not an LLM. This is deliberate: it lets the
+request/response contract (`src/types/aiProfile.ts`) and the frontend
+client (`src/utils/aiClient.ts`) be built and tested end-to-end before an
+API key exists or any prompt engineering happens. Phase 2 swaps the mock
+for a real model call behind the same contract; nothing downstream should
+need to change when that happens.
+
+### Why `AiExtractedProfile` isn't `QuizAnswers`
+
+The quiz's answers are fixed enum values (`'birthday'`, `'sibling'`,
+`'25-50'`, ...) because they come from selecting a button. Free text won't
+reliably map onto those exact slugs — "my sister" clearly means `sibling`,
+but "something for the person who has everything" doesn't cleanly map to
+an occasion or budget at all. So `AiExtractedProfile` is deliberately
+looser: `recipient` and `style` are best-effort normalized guesses
+(`undefined` if nothing confident matched), and `tags` is free-form,
+matched directly against `Gift.tags` rather than forced into the quiz's
+five-question shape. Wiring `tags`-based matching into the scoring engine
+is Phase 4's job, not Phase 1's.
+
+### A note on the mock's honesty
+
+`parseDescriptionMock` only recognizes specific hardcoded keywords — it is
+not natural-language understanding. Its own JSDoc comment documents this,
+including a real gap found while building it: the gift catalog currently
+has a `coffee` tag and a `plants` tag, but no `books` tag, so "loves books,
+coffee, and plants" only recognizes two of the three interests. A real LLM
+in Phase 2 won't have this specific limitation, but it's a good reminder
+that the AI layer is only as useful as the catalog it's matching against —
+expanding `gifts.json` with more products (mentioned as a Version 2 goal
+generally) directly improves what any extraction method can surface.
+
 ## What's deliberately not here
 
 - **No SSR / prerendering** — this is a pure client-rendered SPA. Static

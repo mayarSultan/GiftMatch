@@ -3,6 +3,38 @@
 All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased] — Version 2, Phase 1: AI Backend Foundation
+
+### Added
+
+- `api/parse-description.ts` — a Vercel serverless function establishing the
+  contract for free-text gift descriptions. Validates input, returns a
+  structured `AiExtractedProfile` (recipient/style/tags)
+- `src/utils/parseDescriptionMock.ts` — a deterministic, keyword-based stand-in
+  for the real LLM call, so the contract is fully testable before an API key
+  exists. Documented as a mock, not natural-language understanding
+- `src/utils/aiClient.ts` — typed frontend client for the new endpoint
+  (not yet wired into any UI — that's Phase 3)
+- `vercel.json` — SPA fallback routing + API passthrough, fixing a
+  production-hosting gap that existed since Version 1
+- `tsconfig.api.json` — the `api/` folder is now type-checked as part of
+  `npm run build`, same as the frontend
+- `.env.example` documenting `ANTHROPIC_API_KEY` (unused until Phase 2)
+
+### Changed
+
+- `.gitignore` now excludes real `.env` files and the Vercel CLI's local
+  link folder — first time this project has anything secret-bearing
+- `src/data/gifts.ts` and `src/utils/parseDescriptionMock.ts` use relative
+  imports instead of the `@/` alias, since both are bundled by Vercel's
+  separate function build in addition to Vite
+
+### Not yet done (intentionally — see Phase 2+)
+
+- No real LLM call yet — `parseDescriptionMock` is keyword matching, not AI
+- No UI for entering a free-text description yet
+- Mock output isn't wired into `recommendationEngine.ts` yet
+
 ## [0.8.0] — Production Ready
 
 ### Added
