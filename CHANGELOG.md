@@ -3,6 +3,39 @@
 All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased] — Version 2, Phase 2: Real AI Extraction (Gemini)
+
+### Added
+
+- `api/_lib/geminiExtractor.ts` — real LLM extraction via Google's Gemini
+  API (free tier, no credit card required), replacing the Phase 1 mock as
+  the primary path
+- `src/utils/aiVocabulary.ts` — single source of truth for allowed
+  recipient/style/tag values, shared by both the mock and the real
+  extractor. For Gemini, these are passed as a JSON Schema `enum`, so the
+  model's output is constrained at generation time — it cannot return a
+  value `recommendationEngine` wouldn't understand
+
+### Changed
+
+- `api/parse-description.ts` now tries the real Gemini call first and
+  falls back to `parseDescriptionMock` on any failure — missing API key,
+  network error, rate limit, malformed response. Verified directly: with
+  `GEMINI_API_KEY` unset, the handler still returns `200` with a working
+  mock-derived profile instead of failing the request
+- `.env.example` now documents `GEMINI_API_KEY` (switched from the
+  originally-planned Anthropic key — Gemini has an actual ongoing free
+  tier; Anthropic's API is a one-time trial credit only)
+
+### Known limitation
+
+- The real Gemini call itself could only be verified for its request
+  construction and JSON-parsing logic — this sandbox has no network
+  access to `generativelanguage.googleapis.com`. The fallback path (no
+  key / call fails) is fully verified end-to-end; the success path (a
+  real key returning real extracted data) needs to be tested by whoever
+  has a Gemini API key, via `vercel dev` + a real request
+
 ## [Unreleased] — Version 2, Phase 1: AI Backend Foundation
 
 ### Added

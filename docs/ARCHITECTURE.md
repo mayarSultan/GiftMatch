@@ -130,16 +130,35 @@ the real key server-side — is the only thing that will eventually talk to
 an LLM provider. This is a new architectural layer for GiftMatch, deployed
 on Vercel (`api/` folder convention, `vercel.json` for SPA + API routing).
 
-### Current state: contract-first, mock-backed
+### Current state: real extraction, with a safety net
 
-As of Phase 1, `api/parse-description.ts` is real and fully functional, but
-`src/utils/parseDescriptionMock.ts` — the thing it calls — is a
-deterministic keyword matcher, not an LLM. This is deliberate: it lets the
-request/response contract (`src/types/aiProfile.ts`) and the frontend
-client (`src/utils/aiClient.ts`) be built and tested end-to-end before an
-API key exists or any prompt engineering happens. Phase 2 swaps the mock
-for a real model call behind the same contract; nothing downstream should
-need to change when that happens.
+`api/parse-description.ts` now tries `api/_lib/geminiExtractor.ts` first —
+a real call to Google's Gemini API (free tier, no credit card). If that
+fails for _any_ reason (no `GEMINI_API_KEY` configured, network error,
+rate limit, malformed response), it falls back to
+`parseDescriptionMock.ts` instead of failing the request. This means the
+feature degrades gracefully rather than breaking: worst case, someone
+gets keyword-matching instead of real AI extraction, not an error page.
+This fallback path is verified directly (calling the handler with no key
+set returns a working `200` response); the real Gemini success path needs
+a live key to test, which this environment doesn't have.
+
+**Why Gemini and not Claude/Anthropic:** Anthropic's API has no ongoing
+free tier — just a small one-time trial credit. Gemini's free tier is
+actually ongoing (rate-limited, not credit-limited), which matters for a
+side project that shouldn't need a payment method to keep working.
+
+**Why the model's output can't drift from the app's vocabulary:**
+`src/utils/aiVocabulary.ts` is the single source of truth for every
+recipient value, style value, and known tag — the exact same list the
+mock extractor's keyword maps produce, and the exact same list
+`recommendationEngine.ts` scores against. For the real Gemini call, these
+are passed as a JSON Schema `enum` on the request
+(`responseSchema.properties.recipient.enum`, etc.) — this isn't a prompt
+instruction the model might ignore, it constrains what tokens the model
+is allowed to generate at all. It's structurally impossible for Gemini to
+return a recipient or tag value the recommendation engine doesn't
+recognize.
 
 ### Why `AiExtractedProfile` isn't `QuizAnswers`
 

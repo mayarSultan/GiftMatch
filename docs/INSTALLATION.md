@@ -98,9 +98,15 @@ You're running `npm run dev` instead of `vercel dev` — see step 3 above.
 
 ## Environment variables
 
-Version 1 needed none. Version 2 introduces `api/parse-description.ts`,
-which as of Phase 1 uses a deterministic mock and _still_ needs no
-environment variables. `.env.example` documents `ANTHROPIC_API_KEY` ahead
-of Phase 2, which will make it required — copy it to `.env.local` and fill
-in a real key once that lands. Never commit a real `.env` file; `.gitignore`
-already excludes them.
+`api/parse-description.ts` works with **zero** environment variables — if
+`GEMINI_API_KEY` isn't set, it automatically falls back to a deterministic
+mock extractor. To get real AI extraction instead of the mock:
+
+1. Get a free API key (no credit card required) at
+   [aistudio.google.com](https://aistudio.google.com)
+2. Copy `.env.example` to `.env.local` and paste your key in
+3. Restart `vercel dev` (see step 3 above) so it picks up the new variable
+
+Never commit a real `.env` file — `.gitignore` already excludes them, and
+`.env.local` specifically is meant for exactly this: real local secrets
+that stay on your machine.

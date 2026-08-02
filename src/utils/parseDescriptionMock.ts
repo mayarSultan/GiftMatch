@@ -1,8 +1,8 @@
 // Relative imports (not the usual @/ alias) — this file is bundled by both
 // Vite (frontend) and Vercel's separate function bundler (api/parse-description.ts
 // imports it directly), and only Vite is guaranteed to resolve the alias.
-import { giftCatalog } from '../data/gifts'
 import type { AiExtractedProfile } from '../types/aiProfile'
+import { KNOWN_TAGS } from './aiVocabulary'
 
 const RECIPIENT_KEYWORDS: Record<string, string> = {
   sister: 'sibling',
@@ -51,10 +51,6 @@ const STYLE_KEYWORDS: Record<string, string> = {
   expensive: 'luxury',
   premium: 'luxury',
 }
-
-// Derived from the live catalog rather than hardcoded, so recognized tags
-// always stay valid against whatever gifts.json actually contains.
-const KNOWN_TAGS = Array.from(new Set(giftCatalog.flatMap((gift) => gift.tags)))
 
 function findFirstMatch(
   text: string,
