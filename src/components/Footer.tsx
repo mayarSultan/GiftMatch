@@ -10,9 +10,22 @@ export function Footer() {
           <Gift className="size-4 text-primary" aria-hidden="true" />
           GiftMatch
         </div>
-        <p className="text-sm text-muted-foreground">
-          &copy; {year} GiftMatch. Find the perfect gift in under a minute.
-        </p>
+        <div className="flex flex-col gap-1">
+          <p className="text-sm text-muted-foreground">
+            &copy; {year} GiftMatch. Find the perfect gift in under a minute.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Product photos via{' '}
+            <a
+              href="https://unsplash.com"
+              className="underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Unsplash
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   )

@@ -10,7 +10,7 @@
     "occasion": ["birthday", "anniversary", "just-because"],
     "styles": ["sentimental"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/photo-book/480/480",
+    "image": "https://images.unsplash.com/photo-1677658288115-28905b06b520?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8cGhvdG8lMjBhbGJ1bXxlbnwwfDJ8fHwxNzg2MDU5MjgwfDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/photo-book",
     "tags": ["personalized", "keepsake", "photos", "custom"]
   },
@@ -25,7 +25,7 @@
     "occasion": ["birthday", "holiday", "just-because"],
     "styles": ["practical", "luxury"],
     "ageGroups": ["teen", "young-adult", "adult"],
-    "image": "https://picsum.photos/seed/wireless-earbuds/480/480",
+    "image": "https://images.unsplash.com/photo-1600375104627-c94c416deefa?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8d2lyZWxlc3MlMjBlYXJidWRzfGVufDB8Mnx8fDE3ODYwNTkyODF8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/wireless-earbuds",
     "tags": ["audio", "electronics", "wireless", "fitness"]
   },
@@ -40,7 +40,7 @@
     "occasion": ["birthday", "holiday", "just-because", "wedding"],
     "styles": ["sentimental", "quirky"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/candle-set/480/480",
+    "image": "https://images.unsplash.com/photo-1485364103940-e8aff191ed1e?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Y2FuZGxlc3xlbnwwfDJ8fHwxNzg2MDU5MjgyfDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/candle-set",
     "tags": ["home", "cozy", "scent", "self-care"]
   },
@@ -55,7 +55,7 @@
     "occasion": ["birthday", "holiday", "just-because"],
     "styles": ["quirky", "practical"],
     "ageGroups": ["kid", "teen", "young-adult"],
-    "image": "https://picsum.photos/seed/board-game-bundle/480/480",
+    "image": "https://images.unsplash.com/photo-1617300067484-314ed2cfd9a6?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Ym9hcmQlMjBnYW1lfGVufDB8Mnx8fDE3ODYwNTkyODJ8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/board-game-bundle",
     "tags": ["games", "family", "night-in"]
   },
@@ -70,7 +70,7 @@
     "occasion": ["wedding", "anniversary", "holiday"],
     "styles": ["luxury", "practical"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/espresso-machine/480/480",
+    "image": "https://images.unsplash.com/photo-1637029436347-e33bf98a5412?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8ZXNwcmVzc28lMjBtYWNoaW5lfGVufDB8Mnx8fDE3ODYwNTkyODN8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/espresso-machine",
     "tags": ["coffee", "kitchen", "appliance"]
   },
@@ -85,7 +85,7 @@
     "occasion": ["anniversary", "just-because"],
     "styles": ["sentimental"],
     "ageGroups": ["teen", "young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/stationery-kit/480/480",
+    "image": "https://images.unsplash.com/photo-1589987824703-827057a41910?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8c3RhdGlvbmVyeSUyMHNldHxlbnwwfDJ8fHwxNzg2MDU5Mjg0fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/stationery-kit",
     "tags": ["writing", "stationery", "sentimental"]
   },
@@ -100,7 +100,7 @@
     "occasion": ["birthday", "holiday", "wedding"],
     "styles": ["practical", "luxury"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/leather-wallet/480/480",
+    "image": "https://images.unsplash.com/photo-1601592996763-f05c9c80a7f1?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8bGVhdGhlciUyMHdhbGxldHxlbnwwfDJ8fHwxNzg2MDU5Mjg1fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/leather-wallet",
     "tags": ["leather", "accessories", "everyday-carry"]
   },
@@ -115,7 +115,7 @@
     "occasion": ["birthday", "holiday"],
     "styles": ["quirky", "practical"],
     "ageGroups": ["kid", "teen"],
-    "image": "https://picsum.photos/seed/lego-architecture/480/480",
+    "image": "https://images.unsplash.com/photo-1706879350614-004c4a2d071c?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8bGVnbyUyMGJ1aWxkaW5nfGVufDB8Mnx8fDE3ODYwNTkyODZ8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/lego-architecture",
     "tags": ["building", "collectible", "display"]
   },
@@ -130,7 +130,7 @@
     "occasion": ["birthday", "anniversary", "holiday", "wedding"],
     "styles": ["luxury", "sentimental"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/spa-basket/480/480",
+    "image": "https://images.unsplash.com/photo-1780770738499-5ade63b1f6c3?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8c3BhJTIwZ2lmdCUyMGJhc2tldHxlbnwwfDJ8fHwxNzg2MDU5Mjg3fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/spa-basket",
     "tags": ["relaxation", "self-care", "bath"]
   },
@@ -145,7 +145,7 @@
     "occasion": ["birthday", "holiday", "just-because"],
     "styles": ["quirky"],
     "ageGroups": ["teen", "young-adult", "adult"],
-    "image": "https://picsum.photos/seed/funny-socks/480/480",
+    "image": "https://images.unsplash.com/photo-1592817964758-ccb07b33e512?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Y29sb3JmdWwlMjBzb2Nrc3xlbnwwfDJ8fHwxNzg2MDU5Mjg4fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/funny-socks",
     "tags": ["humor", "novelty", "stocking-stuffer"]
   },
@@ -160,7 +160,7 @@
     "occasion": ["anniversary", "wedding", "birthday"],
     "styles": ["luxury", "sentimental"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/jewelry-necklace/480/480",
+    "image": "https://images.unsplash.com/photo-1721103418312-b0057a8c31c2?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Z29sZCUyMG5lY2tsYWNlfGVufDB8Mnx8fDE3ODYwNTkyODl8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/jewelry-necklace",
     "tags": ["jewelry", "gold", "romantic"]
   },
@@ -175,7 +175,7 @@
     "occasion": ["just-because", "birthday", "holiday"],
     "styles": ["sentimental", "quirky"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/succulent-trio/480/480",
+    "image": "https://images.unsplash.com/photo-1621274220348-41dc235ff439?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8c3VjY3VsZW50JTIwcGxhbnQlMjBwb3R8ZW58MHwyfHx8MTc4NjA1OTI5MHww&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/succulent-trio",
     "tags": ["plants", "desk", "low-maintenance"]
   },
@@ -190,7 +190,7 @@
     "occasion": ["birthday", "holiday", "just-because"],
     "styles": ["practical", "quirky"],
     "ageGroups": ["teen", "young-adult", "adult"],
-    "image": "https://picsum.photos/seed/bluetooth-speaker/480/480",
+    "image": "https://images.unsplash.com/photo-1588131153911-a4ea5189fe19?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Ymx1ZXRvb3RoJTIwc3BlYWtlcnxlbnwwfDJ8fHwxNzg2MDU5MjkxfDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/bluetooth-speaker",
     "tags": ["audio", "portable", "electronics"]
   },
@@ -205,7 +205,7 @@
     "occasion": ["wedding", "holiday", "birthday"],
     "styles": ["practical", "sentimental"],
     "ageGroups": ["adult", "senior"],
-    "image": "https://picsum.photos/seed/cookbook-apron/480/480",
+    "image": "https://images.unsplash.com/photo-1769987935916-2a72e6d5dacd?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Y29va2Jvb2slMjBraXRjaGVufGVufDB8Mnx8fDE3ODYwNTkyOTF8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/cookbook-apron",
     "tags": ["cooking", "kitchen", "recipes"]
   },
@@ -220,7 +220,7 @@
     "occasion": ["holiday", "birthday", "just-because"],
     "styles": ["practical", "sentimental"],
     "ageGroups": ["adult", "senior"],
-    "image": "https://picsum.photos/seed/jigsaw-puzzle/480/480",
+    "image": "https://images.unsplash.com/photo-1684773585761-fde68b4ece42?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8amlnc2F3JTIwcHV6emxlfGVufDB8Mnx8fDE3ODYwNTkyOTJ8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/jigsaw-puzzle",
     "tags": ["puzzle", "relaxing", "hobby"]
   },
@@ -235,7 +235,7 @@
     "occasion": ["wedding", "anniversary", "birthday"],
     "styles": ["luxury"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/designer-watch/480/480",
+    "image": "https://images.unsplash.com/photo-1751437774882-deeea4352018?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8d3Jpc3R3YXRjaHxlbnwwfDJ8fHwxNzg2MDU5MjkzfDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/designer-watch",
     "tags": ["watch", "accessories", "minimalist"]
   },
@@ -250,7 +250,7 @@
     "occasion": ["birthday", "holiday", "just-because"],
     "styles": ["quirky", "luxury"],
     "ageGroups": ["young-adult", "adult"],
-    "image": "https://picsum.photos/seed/tasting-kit/480/480",
+    "image": "https://images.unsplash.com/photo-1749423304391-c516357e5a44?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8d2luZSUyMHRhc3Rpbmd8ZW58MHwyfHx8MTc4NjA1OTI5NHww&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/tasting-kit",
     "tags": ["tasting", "drinks", "curated"]
   },
@@ -265,7 +265,7 @@
     "occasion": ["birthday", "holiday"],
     "styles": ["practical", "quirky"],
     "ageGroups": ["kid"],
-    "image": "https://picsum.photos/seed/kids-art-set/480/480",
+    "image": "https://images.unsplash.com/photo-1583156944293-8951639522fc?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8a2lkcyUyMGFydCUyMHN1cHBsaWVzfGVufDB8Mnx8fDE3ODYwNTkyOTV8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/kids-art-set",
     "tags": ["art", "creative", "kids"]
   },
@@ -280,7 +280,7 @@
     "occasion": ["birthday", "holiday", "anniversary"],
     "styles": ["sentimental", "practical"],
     "ageGroups": ["adult", "senior"],
-    "image": "https://picsum.photos/seed/knit-blanket/480/480",
+    "image": "https://images.unsplash.com/photo-1557303696-f0a415dc1b3e?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8a25pdCUyMGJsYW5rZXR8ZW58MHwyfHx8MTc4NjA1OTI5NXww&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/knit-blanket",
     "tags": ["cozy", "home", "textile"]
   },
@@ -295,7 +295,7 @@
     "occasion": ["birthday", "holiday", "just-because"],
     "styles": ["luxury", "sentimental"],
     "ageGroups": ["young-adult", "adult"],
-    "image": "https://picsum.photos/seed/skincare-set/480/480",
+    "image": "https://images.unsplash.com/photo-1585945037805-5fd82c2e60b1?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8c2tpbmNhcmUlMjBwcm9kdWN0c3xlbnwwfDJ8fHwxNzg2MDU5Mjk2fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/skincare-set",
     "tags": ["skincare", "beauty", "self-care"]
   },
@@ -310,7 +310,7 @@
     "occasion": ["birthday", "just-because"],
     "styles": ["practical"],
     "ageGroups": ["teen", "young-adult", "adult"],
-    "image": "https://picsum.photos/seed/yoga-set/480/480",
+    "image": "https://images.unsplash.com/photo-1552286450-4a669f880062?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8eW9nYSUyMG1hdHxlbnwwfDJ8fHwxNzg2MDU5Mjk3fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/yoga-set",
     "tags": ["fitness", "wellness", "yoga"]
   },
@@ -325,7 +325,7 @@
     "occasion": ["birthday", "holiday"],
     "styles": ["practical", "quirky"],
     "ageGroups": ["teen", "young-adult", "adult"],
-    "image": "https://picsum.photos/seed/camping-hammock/480/480",
+    "image": "https://images.unsplash.com/photo-1576777739643-e73db5bd7441?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Y2FtcGluZyUyMGhhbW1vY2t8ZW58MHwyfHx8MTc4NjA1OTI5OHww&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/camping-hammock",
     "tags": ["outdoors", "camping", "travel"]
   },
@@ -340,7 +340,7 @@
     "occasion": ["birthday", "holiday", "anniversary", "just-because", "wedding"],
     "styles": ["sentimental", "luxury"],
     "ageGroups": ["teen", "young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/chocolate-box/480/480",
+    "image": "https://images.unsplash.com/photo-1656821991459-ae723d90d648?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Y2hvY29sYXRlJTIwYm94fGVufDB8Mnx8fDE3ODYwNTkyOTl8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/chocolate-box",
     "tags": ["chocolate", "treats", "gourmet"]
   },
@@ -355,7 +355,7 @@
     "occasion": ["anniversary", "holiday", "wedding"],
     "styles": ["luxury"],
     "ageGroups": ["adult", "senior"],
-    "image": "https://picsum.photos/seed/wine-subscription/480/480",
+    "image": "https://images.unsplash.com/photo-1678942953384-91aae690abd1?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8d2luZSUyMGJvdHRsZXN8ZW58MHwyfHx8MTc4NjA1OTI5OXww&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/wine-subscription",
     "tags": ["wine", "subscription", "curated"]
   },
@@ -370,7 +370,7 @@
     "occasion": ["birthday", "holiday"],
     "styles": ["practical", "quirky"],
     "ageGroups": ["kid"],
-    "image": "https://picsum.photos/seed/building-blocks/480/480",
+    "image": "https://images.unsplash.com/photo-1657961763970-dbf57f9bcd7c?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8YnVpbGRpbmclMjBibG9ja3MlMjB0b3l8ZW58MHwyfHx8MTc4NjA1OTMwMHww&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/building-blocks",
     "tags": ["building", "kids", "creative"]
   },
@@ -385,7 +385,7 @@
     "occasion": ["birthday", "holiday"],
     "styles": ["quirky", "practical"],
     "ageGroups": ["kid", "teen"],
-    "image": "https://picsum.photos/seed/rc-car/480/480",
+    "image": "https://images.unsplash.com/photo-1762422727316-6cda8a814bc4?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8cmVtb3RlJTIwY29udHJvbCUyMGNhcnxlbnwwfDJ8fHwxNzg2MDU5MzAxfDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/rc-car",
     "tags": ["toys", "remote-control", "outdoor"]
   },
@@ -400,7 +400,7 @@
     "occasion": ["birthday", "wedding", "just-because"],
     "styles": ["sentimental", "practical"],
     "ageGroups": ["adult", "senior"],
-    "image": "https://picsum.photos/seed/fountain-pen/480/480",
+    "image": "https://images.unsplash.com/photo-1617177435596-1c9e30d6d608?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Zm91bnRhaW4lMjBwZW58ZW58MHwyfHx8MTc4NjA1OTMwMnww&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/fountain-pen",
     "tags": ["writing", "office", "classic"]
   },
@@ -415,7 +415,7 @@
     "occasion": ["just-because", "birthday"],
     "styles": ["quirky", "sentimental"],
     "ageGroups": ["young-adult", "adult"],
-    "image": "https://picsum.photos/seed/desk-terrarium/480/480",
+    "image": "https://images.unsplash.com/photo-1630694074561-668c09cf0638?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8dGVycmFyaXVtJTIwcGxhbnQlMjBnbGFzc3xlbnwwfDJ8fHwxNzg2MDU5MzAzfDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/desk-terrarium",
     "tags": ["plants", "desk", "office"]
   },
@@ -430,7 +430,7 @@
     "occasion": ["birthday", "holiday"],
     "styles": ["luxury", "quirky"],
     "ageGroups": ["teen", "young-adult", "adult"],
-    "image": "https://picsum.photos/seed/vr-headset/480/480",
+    "image": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8dnIlMjBoZWFkc2V0fGVufDB8Mnx8fDE3ODYwNTkzMDN8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/vr-headset",
     "tags": ["gaming", "electronics", "immersive"]
   },
@@ -445,7 +445,7 @@
     "occasion": ["birthday", "anniversary", "holiday"],
     "styles": ["practical", "luxury"],
     "ageGroups": ["teen", "young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/smartwatch/480/480",
+    "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8c21hcnR3YXRjaHxlbnwwfDJ8fHwxNzg2MDU5MzA0fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/smartwatch",
     "tags": ["wearable", "fitness", "electronics"]
   },
@@ -460,7 +460,7 @@
     "occasion": ["anniversary", "birthday", "wedding"],
     "styles": ["sentimental"],
     "ageGroups": ["young-adult", "adult", "senior"],
-    "image": "https://picsum.photos/seed/star-map/480/480",
+    "image": "https://images.unsplash.com/photo-1545125610-f55ef71bfd1f?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8bmlnaHQlMjBza3klMjBzdGFyc3xlbnwwfDJ8fHwxNzg2MDU5MzA1fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/star-map",
     "tags": ["personalized", "wall-art", "romantic"]
   },
@@ -475,7 +475,7 @@
     "occasion": ["anniversary", "birthday", "just-because"],
     "styles": ["luxury", "quirky"],
     "ageGroups": ["young-adult", "adult"],
-    "image": "https://picsum.photos/seed/cooking-class/480/480",
+    "image": "https://images.unsplash.com/photo-1769987935916-2a72e6d5dacd?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8Y29va2luZyUyMGNsYXNzJTIwa2l0Y2hlbnxlbnwwfDJ8fHwxNzg2MDU5MzA2fDA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/cooking-class",
     "tags": ["experience", "cooking", "date-night"]
   },
@@ -490,7 +490,7 @@
     "occasion": ["anniversary", "wedding", "birthday"],
     "styles": ["luxury", "sentimental"],
     "ageGroups": ["adult", "senior"],
-    "image": "https://picsum.photos/seed/spa-retreat/480/480",
+    "image": "https://images.unsplash.com/photo-1518860308377-800f02d5498a?ixid=M3wxMDE5OTg1fDB8MXxzZWFyY2h8MXx8c3BhJTIwcmVzb3J0fGVufDB8Mnx8fDE3ODYwNTkzMDd8MA&ixlib=rb-4.1.0&w=480&h=480&fit=crop",
     "futureProductUrl": "/products/spa-retreat",
     "tags": ["experience", "relaxation", "getaway"]
   }

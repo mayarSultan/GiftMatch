@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { CTAButton } from '@/components/CTAButton'
 import { GiftTagStack } from '@/components/GiftTagStack'
 import { routes } from '@/utils/routes'
+import { Link } from 'react-router-dom'
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion()
@@ -24,6 +25,12 @@ export function Hero() {
         <div className="mt-9 flex flex-wrap items-center gap-4">
           <CTAButton label="Start matching" size="lg" to={routes.quiz} />
           <p className="text-sm text-muted-foreground">No account needed. Free to use.</p>
+          <Link
+            to={routes.describe}
+            className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+          >
+            Or describe them in a sentence instead
+          </Link>
         </div>
       </motion.div>
 

@@ -1,7 +1,7 @@
 import { quizQuestions } from '@/data/quizQuestions'
 import type { QuizAnswers } from '@/types/quiz'
 
-function labelFor(
+export function labelFor(
   questionId: (typeof quizQuestions)[number]['id'],
   value: string,
 ): string {

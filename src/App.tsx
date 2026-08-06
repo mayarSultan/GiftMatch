@@ -24,6 +24,9 @@ const FavoritesPage = lazy(() =>
 const NotFoundPage = lazy(() =>
   import('@/pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })),
 )
+const DescribePage = lazy(() =>
+  import('@/pages/DescribePage').then((m) => ({ default: m.DescribePage })),
+)
 
 export function App() {
   useSyncThemeClass()
@@ -41,6 +44,7 @@ export function App() {
             <Route element={<FocusedLayout />}>
               <Route path={routes.quiz} element={<QuizPage />} />
               <Route path={routes.results} element={<ResultsPage />} />
+              <Route path={routes.describe} element={<DescribePage />} />
             </Route>
           </Routes>
         </Suspense>
