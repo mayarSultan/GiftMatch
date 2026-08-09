@@ -3,6 +3,63 @@
 All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased] — Version 2: Real Product Images
+
+### Added
+
+- `scripts/generate-unsplash-images.cjs` — one-time local script that
+  fetches real, curated photos from Unsplash's free API and writes them
+  into `gifts.json`. Runs once on a developer's machine, not from the
+  deployed app — no API key ever reaches production
+- Sitewide photo attribution credit in `Footer.tsx`, per Unsplash's terms
+- `eslint.config.js` now has a dedicated block for `scripts/**/*.cjs`,
+  recognizing Node.js globals (`__dirname`, `process`, `console`) that the
+  app-code config didn't know about
+
+### Removed
+
+- `scripts/generate-placeholder-images.cjs` — fully superseded by the
+  Unsplash version above
+
+### Fixed
+
+- `vercel.json`'s catch-all SPA rewrite (`"/(.*)" → "/"`) was silently
+  breaking `vercel dev` locally (Vite asset requests like `/src/main.tsx`
+  returned 404) — Vercel auto-detects Vite projects and handles this
+  itself, so the explicit rule was actively conflicting with it. Removed;
+  only the `/api/*` passthrough rule remains
+
+## [Unreleased] — Version 2, Phase 4: Integration
+
+### Added
+
+- `recommendationEngine.ts` now accepts an optional `tags` array —
+  AI-extracted interests genuinely influence gift ranking, not just
+  `recipient`/`style`
+- `formatMatchReason.ts` mentions matched interests in the reason text
+  (e.g. "fits their interest in coffee")
+- `quizAnswersSerializer.ts` encodes/decodes tags via the URL too, so
+  `/describe` results are exactly as shareable as quiz results
+- Recent searches now remember tags, so revisiting one reproduces the
+  same tag-influenced results
+
+### Changed
+
+- `ExtractedProfileSummary`'s copy updated — tags are no longer labeled
+  "coming soon," since they now actually affect matching
+
+## [Unreleased] — Version 2, Phase 3: Free-Text Input UI
+
+### Added
+
+- `/describe` route — a free-text alternative to the five-question quiz
+- `DescribeForm`, `ExtractedProfileSummary` components;
+  `useDescribeGift` hook managing the async request lifecycle
+- Real loading and error states for the AI request (a legitimate use of a
+  loading state, unlike Version 1's synchronous engine — this is a real
+  network call)
+- A secondary link from the home page Hero pointing to `/describe`
+
 ## [Unreleased] — Version 2, Phase 2: Real AI Extraction (Gemini)
 
 ### Added

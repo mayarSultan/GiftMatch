@@ -148,42 +148,52 @@ free tier — just a small one-time trial credit. Gemini's free tier is
 actually ongoing (rate-limited, not credit-limited), which matters for a
 side project that shouldn't need a payment method to keep working.
 
-**Why the model's output can't drift from the app's vocabulary:**
-`src/utils/aiVocabulary.ts` is the single source of truth for every
-recipient value, style value, and known tag — the exact same list the
-mock extractor's keyword maps produce, and the exact same list
-`recommendationEngine.ts` scores against. For the real Gemini call, these
-are passed as a JSON Schema `enum` on the request
-(`responseSchema.properties.recipient.enum`, etc.) — this isn't a prompt
-instruction the model might ignore, it constrains what tokens the model
-is allowed to generate at all. It's structurally impossible for Gemini to
-return a recipient or tag value the recommendation engine doesn't
-recognize.
+### Tags feed scoring too, not just display
 
-### Why `AiExtractedProfile` isn't `QuizAnswers`
+`recommendationEngine.ts` accepts an optional `tags` array alongside the
+usual `QuizAnswers` — each matching tag between a search and a gift adds
+points (`POINTS_PER_TAG`, currently 6 — smaller than a full question
+category's 15-20, since one interest tag carries less signal than a
+direct quiz answer). This means a `/describe` search isn't just
+`recipient`/`style` mapped onto the quiz's shape — the actual interests
+someone typed ("coffee", "plants") genuinely influence ranking.
 
-The quiz's answers are fixed enum values (`'birthday'`, `'sibling'`,
-`'25-50'`, ...) because they come from selecting a button. Free text won't
-reliably map onto those exact slugs — "my sister" clearly means `sibling`,
-but "something for the person who has everything" doesn't cleanly map to
-an occasion or budget at all. So `AiExtractedProfile` is deliberately
-looser: `recipient` and `style` are best-effort normalized guesses
-(`undefined` if nothing confident matched), and `tags` is free-form,
-matched directly against `Gift.tags` rather than forced into the quiz's
-five-question shape. Wiring `tags`-based matching into the scoring engine
-is Phase 4's job, not Phase 1's.
+Tags travel through the same URL-based mechanism as everything else
+(`quizAnswersSerializer.ts` encodes them as a `tags=coffee,plants` param
+alongside the existing answer params), so a `/describe` result is exactly
+as shareable and bookmarkable as a quiz result — no special-casing needed
+anywhere downstream.
 
-### A note on the mock's honesty
+**A known, honest limitation:** with a 33-item catalog, some real
+searches will correctly find _zero_ tag overlap — e.g. "sister who loves
+coffee and plants" scores fully on `recipient` but zero on tags, because
+nothing tagged `coffee` or `plants` also lists `sibling` as a valid
+recipient. That's not a scoring bug, it's the catalog's current size
+showing through — the fix is the same one already planned (real products,
+richer tag coverage), not a change to the scoring logic itself.
 
-`parseDescriptionMock` only recognizes specific hardcoded keywords — it is
-not natural-language understanding. Its own JSDoc comment documents this,
-including a real gap found while building it: the gift catalog currently
-has a `coffee` tag and a `plants` tag, but no `books` tag, so "loves books,
-coffee, and plants" only recognizes two of the three interests. A real LLM
-in Phase 2 won't have this specific limitation, but it's a good reminder
-that the AI layer is only as useful as the catalog it's matching against —
-expanding `gifts.json` with more products (mentioned as a Version 2 goal
-generally) directly improves what any extraction method can surface.
+### Product images: a build-time script, not a runtime dependency
+
+`gifts.json`'s `image` field holds plain static URLs — there's no live
+image API call anywhere in the deployed app. `scripts/generate-unsplash-images.cjs`
+is a one-time local script: run it once with a free Unsplash API key
+(`UNSPLASH_ACCESS_KEY`), it searches Unsplash for each gift's keyword and
+writes the resulting photo URL directly into `gifts.json`. From that point
+on, those URLs are just data — no key, no API call, no attack surface in
+production.
+
+This is deliberately simpler than the Gemini integration: because it only
+ever needs to run on a developer's machine (not in response to a live
+user request), it doesn't need a serverless proxy at all — the "don't
+expose API keys client-side" problem that shaped the whole `/api` layer
+for Gemini simply doesn't apply here.
+
+Unsplash's terms require attribution wherever their photos are used;
+`Footer.tsx` carries a sitewide "Product photos via Unsplash" credit to
+satisfy that. A fully compliant production app would credit each photo's
+individual photographer — worth revisiting if this becomes a real
+commercial deployment; the sitewide credit is a reasonable good-faith
+step for where the project is now.
 
 ## What's deliberately not here
 
