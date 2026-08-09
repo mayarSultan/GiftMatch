@@ -29,8 +29,8 @@ export function DescribePage() {
       style: profile.style,
     }
 
-    addSearch(answers)
-    navigate(`${routes.results}?${encodeAnswersToSearchParams(answers)}`)
+    addSearch(answers, profile.tags)
+    navigate(`${routes.results}?${encodeAnswersToSearchParams(answers, profile.tags)}`)
   }
 
   return (

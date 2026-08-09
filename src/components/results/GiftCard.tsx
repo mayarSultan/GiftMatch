@@ -13,7 +13,7 @@ interface GiftCardProps {
 }
 
 function GiftCardComponent({ scoredGift, index }: GiftCardProps) {
-  const { gift, score, maxScore, matchedCategories } = scoredGift
+  const { gift, score, maxScore, matchedCategories, matchedTags } = scoredGift
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -44,7 +44,9 @@ function GiftCardComponent({ scoredGift, index }: GiftCardProps) {
 
         <p className="text-sm text-muted-foreground">{gift.description}</p>
         <p className="font-semibold">${gift.price}</p>
-        <p className="text-sm text-primary">{formatMatchReason(matchedCategories)}</p>
+        <p className="text-sm text-primary">
+          {formatMatchReason(matchedCategories, matchedTags)}
+        </p>
 
         <ul className="mt-auto flex flex-wrap gap-2 pt-2" aria-label="Tags">
           {gift.tags.map((tag) => (

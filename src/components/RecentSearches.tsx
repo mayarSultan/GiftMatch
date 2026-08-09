@@ -33,7 +33,7 @@ export function RecentSearches() {
         {entries.map((entry) => (
           <li key={entry.id}>
             <Link
-              to={`${routes.results}?${encodeAnswersToSearchParams(entry.answers)}`}
+              to={`${routes.results}?${encodeAnswersToSearchParams(entry.answers, entry.tags ?? [])}`}
               className="flex flex-col gap-0.5 rounded-2xl border border-border bg-card px-4 py-3 transition-colors hover:border-primary/40"
             >
               <span className="text-sm font-medium">

@@ -8,18 +8,30 @@ const CATEGORY_LABELS: Record<QuestionId, string> = {
   style: 'style',
 }
 
-export function formatMatchReason(matchedCategories: QuestionId[]): string {
-  if (matchedCategories.length === 0) {
+function joinWithAnd(items: string[]): string {
+  if (items.length === 1) return items[0]
+  const last = items[items.length - 1]
+  const rest = items.slice(0, -1).join(', ')
+  return `${rest} and ${last}`
+}
+
+export function formatMatchReason(
+  matchedCategories: QuestionId[],
+  matchedTags: string[] = [],
+): string {
+  const categoryLabels = matchedCategories.map((id) => CATEGORY_LABELS[id])
+
+  if (categoryLabels.length === 0 && matchedTags.length === 0) {
     return 'A popular pick worth considering.'
   }
 
-  const labels = matchedCategories.map((id) => CATEGORY_LABELS[id])
-
-  if (labels.length === 1) {
-    return `Matches your ${labels[0]}.`
+  const parts: string[] = []
+  if (categoryLabels.length > 0) {
+    parts.push(`Matches your ${joinWithAnd(categoryLabels)}`)
+  }
+  if (matchedTags.length > 0) {
+    parts.push(`fits their interest in ${joinWithAnd(matchedTags)}`)
   }
 
-  const last = labels[labels.length - 1]
-  const rest = labels.slice(0, -1).join(', ')
-  return `Matches your ${rest} and ${last}.`
+  return `${parts.join(', and ')}.`
 }

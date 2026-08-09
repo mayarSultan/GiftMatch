@@ -7,26 +7,27 @@ const MAX_ENTRIES = 5
 export interface RecentSearchEntry {
   id: string
   answers: QuizAnswers
+  tags: string[]
   createdAt: number
 }
 
 interface RecentSearchesState {
   entries: RecentSearchEntry[]
-  addSearch: (answers: QuizAnswers) => void
+  addSearch: (answers: QuizAnswers, tags?: string[]) => void
   clearSearches: () => void
 }
 
-// Stores only the answers, not the computed gift matches — results are
-// re-derived live from getRecommendations() whenever an entry is opened,
-// so they stay accurate even if the gift catalog changes later.
+// Stores only the answers/tags, not the computed gift matches — results
+// are re-derived live from getRecommendations() whenever an entry is
+// opened, so they stay accurate even if the gift catalog changes later.
 export const useRecentSearchesStore = create<RecentSearchesState>()(
   persist(
     (set) => ({
       entries: [],
-      addSearch: (answers) =>
+      addSearch: (answers, tags = []) =>
         set((state) => ({
           entries: [
-            { id: crypto.randomUUID(), answers, createdAt: Date.now() },
+            { id: crypto.randomUUID(), answers, tags, createdAt: Date.now() },
             ...state.entries,
           ].slice(0, MAX_ENTRIES),
         })),

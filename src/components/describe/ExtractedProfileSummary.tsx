@@ -39,7 +39,7 @@ export function ExtractedProfileSummary({ profile }: ExtractedProfileSummaryProp
             ))}
           </ul>
           <p className="mt-2 text-xs text-muted-foreground">
-            Interests aren't factored into matching yet — support for this is coming soon.
+            We'll use these to help find better matches.
           </p>
         </div>
       )}
