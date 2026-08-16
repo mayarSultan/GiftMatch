@@ -1,9 +1,12 @@
 // Relative imports — this file is bundled by Vercel's function build, not
 // Vite, so it can't rely on the @/ alias (see parseDescriptionMock.ts).
 import { GoogleGenAI } from '@google/genai'
-import { RECIPIENT_VALUES, STYLE_VALUES, KNOWN_TAGS } from '../../src/utils/aiVocabulary'
-import type { AiExtractedProfile } from '../../src/types/aiProfile'
-
+import {
+  RECIPIENT_VALUES,
+  STYLE_VALUES,
+  KNOWN_TAGS,
+} from '../../src/utils/aiVocabulary.js'
+import type { AiExtractedProfile } from '../../src/types/aiProfile.js'
 // Using the "-latest" alias rather than a dated snapshot (e.g.
 // "gemini-2.5-flash") on purpose: Google periodically retires older
 // snapshots for new API keys — that's exactly what broke this the first

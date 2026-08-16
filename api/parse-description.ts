@@ -1,12 +1,12 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { parseDescriptionMock } from '../src/utils/parseDescriptionMock'
-import { extractProfileWithGemini } from './_lib/geminiExtractor'
+import { parseDescriptionMock } from '../src/utils/parseDescriptionMock.js'
+import { extractProfileWithGemini } from './_lib/geminiExtractor.js'
 import {
   MAX_DESCRIPTION_LENGTH,
   type AiExtractedProfile,
   type ParseDescriptionRequest,
   type ParseDescriptionResponse,
-} from '../src/types/aiProfile'
+} from '../src/types/aiProfile.js'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {

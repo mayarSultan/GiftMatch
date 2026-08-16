@@ -1,7 +1,7 @@
 // Relative import — see the note in parseDescriptionMock.ts. This file is
 // bundled by Vercel's function build too (via geminiExtractor.ts), so it
 // can't rely on the @/ alias.
-import { giftCatalog } from '../data/gifts'
+import { giftCatalog } from '../data/gifts.js'
 
 /**
  * The only values recognized anywhere in the AI layer. Both the mock

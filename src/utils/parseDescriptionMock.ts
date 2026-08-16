@@ -1,8 +1,8 @@
 // Relative imports (not the usual @/ alias) — this file is bundled by both
 // Vite (frontend) and Vercel's separate function bundler (api/parse-description.ts
 // imports it directly), and only Vite is guaranteed to resolve the alias.
-import type { AiExtractedProfile } from '../types/aiProfile'
-import { KNOWN_TAGS } from './aiVocabulary'
+import type { AiExtractedProfile } from '../types/aiProfile.js'
+import { KNOWN_TAGS } from './aiVocabulary.js'
 
 const RECIPIENT_KEYWORDS: Record<string, string> = {
   sister: 'sibling',
