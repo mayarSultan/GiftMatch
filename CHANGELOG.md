@@ -3,6 +3,42 @@
 All notable changes to this project are documented here. Format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased] — Version 2: Production Deployment Fixes
+
+### Fixed
+
+- **SPA routing 404 in production.** Removed `vercel.json`'s catch-all
+  rewrite (`"/(.*)" → "/"`) earlier this session to fix a local `vercel dev`
+  bug — that fix broke production instead: a hard refresh on any
+  client-side route (e.g. `/results?occasion=birthday`) returned a genuine
+  platform-level 404, since without the rewrite, Vercel had no fallback
+  for paths that aren't real files in the static build output. Restored
+  the rewrite. Going forward, local testing is split by purpose instead of
+  relying on one config to satisfy both: `npm run dev` for UI/routing work
+  (no `vercel.json` involved, no conflict), `vercel dev` specifically for
+  testing the `/api` function.
+- **`/describe` returning a raw 500 in production only.** Vercel's actual
+  serverless build enforces strict Node.js ESM rules — explicit `.js`
+  extensions on relative imports, and an import attribute
+  (`with { type: 'json' }`) for JSON imports — that our local
+  `tsconfig.api.json` was deliberately relaxed to avoid. The mismatch meant
+  `npm run build` passed clean locally while Vercel's real build failed
+  outright, crashing before our own Gemini-failure fallback ever got a
+  chance to run. Fixed by adding explicit `.js` extensions and the JSON
+  import attribute to every file that crosses the frontend/serverless
+  boundary (`gifts.ts`, `aiVocabulary.ts`, `parseDescriptionMock.ts`,
+  `geminiExtractor.ts`, `parse-description.ts`).
+- Added `GEMINI_API_KEY` to the **Production** environment on Vercel — it
+  had only ever been added to Development, meaning the live site was
+  silently serving the mock extractor to every real visitor since Phase 2.
+
+### Note
+
+Both bugs above were invisible through `npm run build` and `vercel dev`
+alike — both use more lenient settings than Vercel's actual production
+bundler enforces. Confirmed via direct testing against the live deployment
+after each fix, not assumed from a clean local build.
+
 ## [Unreleased] — Version 2: Real Product Images
 
 ### Added
